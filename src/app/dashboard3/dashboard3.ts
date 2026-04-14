@@ -5,9 +5,9 @@ import { Sidebar } from '../sidebar/sidebar';
 import { Footer } from '../footer/footer';
 
 @Component({
-  selector: 'app-dashboard',
-  imports: [ Header, Sidebar, Footer, RouterModule],
-  templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css',
+  selector: 'app-dashboard3',
+  imports: [ Header, Sidebar, Footer, RouterModule ],
+  templateUrl: './dashboard3.html',
+  styleUrl: './dashboard3.css',
 })
-export class Dashboard {}
+export class Dashboard3 {}

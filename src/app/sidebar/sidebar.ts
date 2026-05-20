@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,8 +8,12 @@ import { RouterModule } from '@angular/router';
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })
-export class Sidebar {
+export class Sidebar implements OnInit{
   @Input() moduleName: string = '';
+  username: string="";
+
+  constructor(private cookieService: CookieService, private router: Router){}
+
   isDashboardMenuOpen = ['dashboard', 'dashboard2', 'dashboard3'].includes(this.moduleName);
   toggleDashboardMenu(event: Event) {
     // 1. Stop the browser from jumping to the top of the page
@@ -19,5 +24,9 @@ export class Sidebar {
 
     // 3. Toggle the menu
     this.isDashboardMenuOpen = !this.isDashboardMenuOpen;
+  }
+
+  ngOnInit(): void{
+    this.username = this.cookieService.get("userId");
   }
 }
